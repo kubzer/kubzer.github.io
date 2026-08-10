@@ -76,21 +76,13 @@
   a.app:active{transform:translateY(0) scale(.99)}
   .icon{
     flex:0 0 52px; width:52px; height:52px; border-radius:14px;
-    display:grid; place-items:center; font-size:26px; line-height:1;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+    object-fit:cover; display:block; background:var(--chip);
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);
   }
   .app-txt{flex:1 1 auto; min-width:0}
   .app-name{font-size:16px; font-weight:700; letter-spacing:-.01em}
   .app-desc{font-size:13px; color:var(--muted); line-height:1.4; margin-top:2px}
   .chev{flex:0 0 auto; color:var(--muted); opacity:.6}
-
-  /* icon backgrounds */
-  .i-poly{background:linear-gradient(145deg,#5aa9e6,#2478be)}
-  .i-bug {background:linear-gradient(145deg,#9ad06a,#5aab3f)}
-  .i-maze{background:linear-gradient(145deg,#f2a65a,#e07b39)}
-  .i-snap{background:linear-gradient(145deg,#c79cf0,#8a5cd0)}
-  .i-mom {background:linear-gradient(145deg,#f79bb4,#e56b8c)}
-  .i-zen {background:linear-gradient(145deg,#7fd1c0,#3fa694)}
 
   /* Featured highlight */
   a.app.feat{border-color:rgba(224,138,75,.45); box-shadow:0 8px 22px var(--card-shadow)}
@@ -129,7 +121,7 @@
 
   <!-- Featured -->
   <a class="app feat" href="https://apps.apple.com/app/id6789885681" target="_blank" rel="noopener">
-    <div class="icon i-poly" aria-hidden="true">🔤</div>
+    <img class="icon" src="icons/polyword.png" alt="" width="52" height="52" loading="lazy">
     <div class="app-txt">
       <div class="app-name">PolyWord<span class="badge">Featured</span></div>
       <div class="app-desc">Learn words in 6 languages inside a crossword</div>
@@ -141,7 +133,7 @@
   <div class="section">For little ones</div>
 
   <a class="app" href="https://apps.apple.com/app/id6777139769" target="_blank" rel="noopener">
-    <div class="icon i-bug" aria-hidden="true">🐞</div>
+    <img class="icon" src="icons/alphabug.png" alt="" width="52" height="52" loading="lazy">
     <div class="app-txt">
       <div class="app-name">AlphaBug Trace</div>
       <div class="app-desc">Trace letters to wake the sleepy bug</div>
@@ -150,7 +142,7 @@
   </a>
 
   <a class="app" href="https://apps.apple.com/app/id6778200984" target="_blank" rel="noopener">
-    <div class="icon i-maze" aria-hidden="true">🚗</div>
+    <img class="icon" src="icons/tinymaze.png" alt="" width="52" height="52" loading="lazy">
     <div class="app-txt">
       <div class="app-name">Tiny Maze</div>
       <div class="app-desc">Gentle road puzzles for ages 3–6</div>
@@ -159,7 +151,7 @@
   </a>
 
   <a class="app" href="https://apps.apple.com/app/id6779732168" target="_blank" rel="noopener">
-    <div class="icon i-snap" aria-hidden="true">🧩</div>
+    <img class="icon" src="icons/smartsnap.png" alt="" width="52" height="52" loading="lazy">
     <div class="app-txt">
       <div class="app-name">SmartSnap</div>
       <div class="app-desc">Adaptive photo puzzles that grow with your child</div>
@@ -168,7 +160,7 @@
   </a>
 
   <a class="app" href="https://apps.apple.com/app/id6776413830" target="_blank" rel="noopener">
-    <div class="icon i-mom" aria-hidden="true">🔊</div>
+    <img class="icon" src="icons/mommysays.png" alt="" width="52" height="52" loading="lazy">
     <div class="app-txt">
       <div class="app-name">Mommy Says</div>
       <div class="app-desc">A toddler sound box in your own voice</div>
@@ -180,7 +172,7 @@
   <div class="section">For grown-ups</div>
 
   <a class="app" href="https://apps.apple.com/app/id6779969586" target="_blank" rel="noopener">
-    <div class="icon i-zen" aria-hidden="true">🌿</div>
+    <img class="icon" src="icons/zensnap.png" alt="" width="52" height="52" loading="lazy">
     <div class="app-txt">
       <div class="app-name">ZenSnap</div>
       <div class="app-desc">Mindful photo puzzles to unwind</div>
