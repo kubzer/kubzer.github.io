@@ -2,10 +2,216 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=/zensnap/">
-<title>ZenSnap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KaaF Games — Cozy puzzle &amp; learning games</title>
+<meta name="description" content="KaaF Games makes cozy, handcrafted puzzle & learning games for little hands and grown-up brains. Play PolyWord, AlphaBug Trace, Tiny Maze, SmartSnap, Mommy Says and ZenSnap.">
+<meta name="theme-color" content="#f4ede2">
+<meta name="theme-color" content="#17140f" media="(prefers-color-scheme: dark)">
+
+<!-- Open Graph / social share preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KaaF Games">
+<meta property="og:title" content="KaaF Games — Cozy puzzle & learning games">
+<meta property="og:description" content="Handcrafted puzzle & learning games for kids and grown-ups. Play all our apps, free on the App Store.">
+<meta property="og:url" content="https://kubzer.github.io/">
+<meta name="twitter:card" content="summary">
+
+<!-- Emoji favicon (no external request) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%A9%3C/text%3E%3C/svg%3E">
+
+<style>
+  :root{
+    --bg1:#f7f1e7; --bg2:#f2e3d3; --ink:#2b2620; --muted:#7a6f61;
+    --card:#fffdf9; --card-border:rgba(43,38,32,.08); --card-shadow:rgba(120,90,50,.14);
+    --accent:#e08a4b; --accent-ink:#b5622b; --chip:#efe6d8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg1:#17140f; --bg2:#221c14; --ink:#f4ede2; --muted:#b3a793;
+      --card:#241e17; --card-border:rgba(255,255,255,.07); --card-shadow:rgba(0,0,0,.4);
+      --accent:#efa163; --accent-ink:#f2b783; --chip:#2e2619;
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; min-height:100dvh;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(180deg,var(--bg1),var(--bg2));
+    background-attachment:fixed;
+    -webkit-font-smoothing:antialiased;
+    padding:calc(env(safe-area-inset-top) + 32px) 20px calc(env(safe-area-inset-bottom) + 40px);
+    display:flex; justify-content:center;
+  }
+  .wrap{width:100%; max-width:460px}
+
+  /* Header */
+  header{text-align:center; margin-bottom:26px}
+  .logo{
+    width:76px; height:76px; margin:0 auto 14px; border-radius:22px;
+    display:grid; place-items:center; font-size:38px; line-height:1;
+    background:linear-gradient(145deg,#f6b26b,#e0783c);
+    box-shadow:0 10px 24px var(--card-shadow), inset 0 1px 0 rgba(255,255,255,.4);
+  }
+  h1{margin:0; font-size:26px; letter-spacing:-.02em; font-weight:800}
+  .tagline{margin:8px auto 0; max-width:340px; color:var(--muted); font-size:15px; line-height:1.5}
+
+  /* Section label */
+  .section{
+    margin:26px 4px 12px; font-size:12px; font-weight:700; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--accent-ink);
+  }
+  .section:first-of-type{margin-top:20px}
+
+  /* App rows */
+  a.app{
+    display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit;
+    background:var(--card); border:1px solid var(--card-border); border-radius:18px;
+    padding:14px 16px; margin-bottom:12px;
+    box-shadow:0 6px 16px var(--card-shadow);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  a.app:hover{transform:translateY(-2px); box-shadow:0 12px 24px var(--card-shadow)}
+  a.app:active{transform:translateY(0) scale(.99)}
+  .icon{
+    flex:0 0 52px; width:52px; height:52px; border-radius:14px;
+    display:grid; place-items:center; font-size:26px; line-height:1;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+  }
+  .app-txt{flex:1 1 auto; min-width:0}
+  .app-name{font-size:16px; font-weight:700; letter-spacing:-.01em}
+  .app-desc{font-size:13px; color:var(--muted); line-height:1.4; margin-top:2px}
+  .chev{flex:0 0 auto; color:var(--muted); opacity:.6}
+
+  /* icon backgrounds */
+  .i-poly{background:linear-gradient(145deg,#5aa9e6,#2478be)}
+  .i-bug {background:linear-gradient(145deg,#9ad06a,#5aab3f)}
+  .i-maze{background:linear-gradient(145deg,#f2a65a,#e07b39)}
+  .i-snap{background:linear-gradient(145deg,#c79cf0,#8a5cd0)}
+  .i-mom {background:linear-gradient(145deg,#f79bb4,#e56b8c)}
+  .i-zen {background:linear-gradient(145deg,#7fd1c0,#3fa694)}
+
+  /* Featured highlight */
+  a.app.feat{border-color:rgba(224,138,75,.45); box-shadow:0 8px 22px var(--card-shadow)}
+  .badge{
+    display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em;
+    text-transform:uppercase; color:#fff; background:var(--accent);
+    padding:2px 7px; border-radius:999px; margin-left:8px; vertical-align:middle;
+  }
+
+  /* Social + footer */
+  .socials{display:flex; justify-content:center; gap:12px; margin:26px 0 14px}
+  .socials a{
+    width:46px; height:46px; border-radius:14px; display:grid; place-items:center;
+    background:var(--card); border:1px solid var(--card-border); color:var(--ink);
+    box-shadow:0 5px 14px var(--card-shadow); transition:transform .12s ease;
+  }
+  .socials a:hover{transform:translateY(-2px)}
+  .socials svg{width:22px; height:22px}
+  .allapps{
+    display:block; text-align:center; text-decoration:none; font-weight:700; font-size:14px;
+    color:var(--accent-ink); background:var(--chip); border-radius:14px; padding:13px;
+    margin-bottom:18px;
+  }
+  footer{text-align:center; color:var(--muted); font-size:12px; line-height:1.6}
+  footer a{color:var(--muted)}
+</style>
 </head>
 <body>
-<p>Redirecting to <a href="/zensnap/">ZenSnap</a>&hellip;</p>
+<div class="wrap">
+
+  <header>
+    <div class="logo" aria-hidden="true">🧩</div>
+    <h1>KaaF Games</h1>
+    <p class="tagline">Cozy, handcrafted puzzle &amp; learning games — for little hands and grown-up brains alike.</p>
+  </header>
+
+  <!-- Featured -->
+  <a class="app feat" href="https://apps.apple.com/app/id6789885681" target="_blank" rel="noopener">
+    <div class="icon i-poly" aria-hidden="true">🔤</div>
+    <div class="app-txt">
+      <div class="app-name">PolyWord<span class="badge">Featured</span></div>
+      <div class="app-desc">Learn words in 6 languages inside a crossword</div>
+    </div>
+    <div class="chev" aria-hidden="true">↗</div>
+  </a>
+
+  <!-- Little ones -->
+  <div class="section">For little ones</div>
+
+  <a class="app" href="https://apps.apple.com/app/id6777139769" target="_blank" rel="noopener">
+    <div class="icon i-bug" aria-hidden="true">🐞</div>
+    <div class="app-txt">
+      <div class="app-name">AlphaBug Trace</div>
+      <div class="app-desc">Trace letters to wake the sleepy bug</div>
+    </div>
+    <div class="chev" aria-hidden="true">↗</div>
+  </a>
+
+  <a class="app" href="https://apps.apple.com/app/id6778200984" target="_blank" rel="noopener">
+    <div class="icon i-maze" aria-hidden="true">🚗</div>
+    <div class="app-txt">
+      <div class="app-name">Tiny Maze</div>
+      <div class="app-desc">Gentle road puzzles for ages 3–6</div>
+    </div>
+    <div class="chev" aria-hidden="true">↗</div>
+  </a>
+
+  <a class="app" href="https://apps.apple.com/app/id6779732168" target="_blank" rel="noopener">
+    <div class="icon i-snap" aria-hidden="true">🧩</div>
+    <div class="app-txt">
+      <div class="app-name">SmartSnap</div>
+      <div class="app-desc">Adaptive photo puzzles that grow with your child</div>
+    </div>
+    <div class="chev" aria-hidden="true">↗</div>
+  </a>
+
+  <a class="app" href="https://apps.apple.com/app/id6776413830" target="_blank" rel="noopener">
+    <div class="icon i-mom" aria-hidden="true">🔊</div>
+    <div class="app-txt">
+      <div class="app-name">Mommy Says</div>
+      <div class="app-desc">A toddler sound box in your own voice</div>
+    </div>
+    <div class="chev" aria-hidden="true">↗</div>
+  </a>
+
+  <!-- Grown-ups -->
+  <div class="section">For grown-ups</div>
+
+  <a class="app" href="https://apps.apple.com/app/id6779969586" target="_blank" rel="noopener">
+    <div class="icon i-zen" aria-hidden="true">🌿</div>
+    <div class="app-txt">
+      <div class="app-name">ZenSnap</div>
+      <div class="app-desc">Mindful photo puzzles to unwind</div>
+    </div>
+    <div class="chev" aria-hidden="true">↗</div>
+  </a>
+
+  <!-- Socials -->
+  <nav class="socials" aria-label="Social links">
+    <a href="https://youtube.com/@KaaFGames" target="_blank" rel="noopener" aria-label="YouTube">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.56 12 3.56 12 3.56s-7.5 0-9.39.52A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.89.52 9.39.52 9.39.52s7.5 0 9.39-.52a3 3 0 0 0 2.11-2.12A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+    </a>
+    <a href="https://tiktok.com/@KaaFGames" target="_blank" rel="noopener" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v11.9a2.4 2.4 0 1 1-2.4-2.4c.24 0 .48.04.7.1V9.4a5.5 5.5 0 1 0 4.8 5.46V9.01a7.3 7.3 0 0 0 4.3 1.38V7.3a4.3 4.3 0 0 1-3.3-1.5Z"/></svg>
+    </a>
+    <a href="https://instagram.com/KaaFGames" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="mailto:kubzer@gmail.com" aria-label="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+    </a>
+  </nav>
+
+  <a class="allapps" href="https://apps.apple.com/developer/kubra-tercan/id1893749781" target="_blank" rel="noopener">
+    📲 See all our apps on the App Store
+  </a>
+
+  <footer>
+    Made with care by KaaF Games · <a href="mailto:kubzer@gmail.com">kubzer@gmail.com</a>
+  </footer>
+
+</div>
 </body>
 </html>
